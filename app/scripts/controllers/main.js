@@ -10,8 +10,8 @@
 angular.module('youStampApp')
   .controller('MainCtrl', function ($scope) {
   	$scope.theBestVideo = 'm-CKVr6Z1Tw';
-  	$scope.currentVideoTime = 0;
-  	$scope.newStamp = { time: 0, input: ""};
+  	$scope.currentVideoTime = "00:00";
+  	$scope.newStamp = { time: "00:00", input: ""};
   	$scope.stamps = {};
 
   	$scope.$on('youtube.player.playing', function ($event, player) {
