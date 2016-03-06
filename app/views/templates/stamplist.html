@@ -1,5 +1,7 @@
 <div>
-	<div ng-repeat="stamp in stamps | orderBy: 'time'">
-		{{stamp.time}} - {{stamp.input}}
+	<div class="stamp" ng-repeat="stamp in stamps | orderBy: 'time'">
+		<span class="stamp-time">{{stamp.time}}</span>
+		<span class="delete" ng-click="remove(stamp)">X</span>
+		<span class="stamp-input">{{stamp.input}}</span>
 	</div>
 </div>

@@ -15,6 +15,12 @@ angular.module('youStampApp')
       	stamps: "="
       },
       link: function postLink(scope, element, attrs) {
+      	scope.remove = function(stamp) {
+      		var index = scope.stamps.indexOf(stamp);
+      		if(index !== -1) {
+      			scope.stamps.splice(index, 1);
+      		}
+      	}
       }
     };
   });
