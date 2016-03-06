@@ -9,8 +9,16 @@
  */
 angular.module('youStampApp')
   .controller('MainCtrl', function ($scope) {
-
-  	$scope.$on("time", function(event, data) {
-  		console.log(data);
+  	$scope.theBestVideo = 'sMKoNBRZM1M';
+  	$scope.currentVideoTime = 0;
+  	
+  	$scope.$on('youtube.player.playing', function ($event, player) {
+  		setInterval(function() { updateTimer(player) }, 500);
   	});
+
+  	function updateTimer(player) {
+  		$scope.currentVideoTime = player.getCurrentTime();
+  		console.log($scope.currentVideoTime);
+  	}
+
   });
