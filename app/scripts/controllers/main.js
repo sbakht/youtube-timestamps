@@ -8,5 +8,9 @@
  * Controller of the youStampApp
  */
 angular.module('youStampApp')
-  .controller('MainCtrl', function () {
+  .controller('MainCtrl', function ($scope) {
+
+  	$scope.$on("time", function(event, data) {
+  		console.log(data);
+  	});
   });

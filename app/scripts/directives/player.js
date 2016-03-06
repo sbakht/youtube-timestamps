@@ -24,8 +24,6 @@ angular.module('youStampApp')
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-        // 3. This function creates an <iframe> (and YouTube player)
-        //    after the API code downloads.
         var player;
         $window.onYouTubeIframeAPIReady = function() {
           player = new YT.Player(element.children()[0], {
@@ -34,10 +32,11 @@ angular.module('youStampApp')
             videoId: scope.videoid,
             events: {
               'onReady': onPlayerReady,
-              'onStateChange': onPlayerStateChange
+              // 'onStateChange': onPlayerStateChange
             }
           });
         }
+
         scope.$watch('videoid', function(newValue, oldValue) {
           if (newValue == oldValue) {
             return;
@@ -53,15 +52,22 @@ angular.module('youStampApp')
         }); 
 
         function onPlayerReady(event) {
-          setInterval(updateTimer, 500);
+            setInterval(updateTimer, 500);
         }
 
-        function onPlayerStateChange(event) {
-          updateTimer();
-        }
+        // function onPlayerStateChange(event) {
+        // }
+
         function stopVideo() {
           player.stopVideo();
         }
+
+        function updateTimer() {
+          scope.$apply(function() {
+            scope.$emit("time", player.getCurrentTime());
+          });
+        }
+
       }
     };
   });
