@@ -11,8 +11,8 @@ angular.module('youStampApp')
   .controller('MainCtrl', function ($scope) {
   	$scope.theBestVideo = 'm-CKVr6Z1Tw';
   	$scope.currentVideoTime = 0;
-  	$scope.newStampTime = 0;
-  	$scope.newStampInput = "";
+  	$scope.newStamp = { time: 0, input: ""};
+  	$scope.stamps = {};
 
   	$scope.$on('youtube.player.playing', function ($event, player) {
   		setInterval(function() { updateTimer(player) }, 500);
@@ -20,13 +20,17 @@ angular.module('youStampApp')
 
   	function updateTimer(player) {
   		$scope.currentVideoTime = secondsToTimeStr(player.getCurrentTime());
-  		console.log($scope.currentVideoTime);
   	}
 
   	$scope.keypress = function() {
-  		if($scope.newStampInput.length === 0) {
-  			$scope.newStampTime = $scope.currentVideoTime;
+  		if($scope.newStamp.input.length === 0) {
+  			$scope.newStamp.time = $scope.currentVideoTime;
   		}
+  	}
+
+  	$scope.createStamp = function() {
+		$scope.stamps[$scope.newStamp.time] = {input: $scope.newStamp.input};
+		resetInputs();
   	}
 
   	function secondsToTimeStr(time) {
@@ -39,6 +43,11 @@ angular.module('youStampApp')
   			minutes = "0" + minutes;
   		}
   		return minutes + ":" + seconds; 
+  	}
+
+  	function resetInputs() {
+  		$scope.newStamp.input = "";
+		$scope.newStamp.time = $scope.currentVideoTime;
   	}
 
   });

@@ -1,5 +1,10 @@
 <youtube-video video-id="theBestVideo"></youtube-video>
 
 <div class="row">
-  <input id="new-stamp-time" ng-model="newStampTime"></input><input id="new-stamp-input" ng-model="newStampInput" ng-keypress="keypress()" type="text" />
+<form ng-submit="createStamp()">
+  <input id="new-stamp-time" ng-model="newStamp.time"></input><input id="new-stamp-input" ng-model="newStamp.input" ng-keypress="keypress()" type="text" />
+  <input type="submit" value="Create Timestamp" />
+</form>
 </div>
+
+{{stamps}}
