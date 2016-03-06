@@ -142,3 +142,10 @@ form {
 .header {
   text-align: center;
 }
+
+#export-link {
+  color: #6767C5;
+  display: block;
+  text-align: right;
+  cursor: pointer;
+}

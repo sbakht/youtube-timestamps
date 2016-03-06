@@ -58,7 +58,7 @@ angular.module('youStampApp')
 
   	hotkeys.add({
 	    combo: 'alt+up',
-	    description: '+1 for creating stamp',
+	    description: '+1 to creating stamp time',
 	    allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
 	    callback: function() {
 	      var videoLength = $scope.player.getDuration();
@@ -71,7 +71,7 @@ angular.module('youStampApp')
 
   	hotkeys.add({
 	    combo: 'alt+down',
-	    description: '-1 for creating stamp',
+	    description: '-1 to creating stamp time',
 	    allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
 	    callback: function() {
 	      var seconds = timeStrToSeconds($scope.newStamp.time) - 1;
