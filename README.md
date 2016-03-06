@@ -1,12 +1,5 @@
-# you-stamp
+# Youtube Timestamps
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.12.1.
+[View the site here](https://youstamp.firebaseapp.com/)
 
-## Build & development
-
-Run `grunt` for building and `grunt serve` for preview.
-
-## Testing
-
-Running `grunt test` will run the unit tests with karma.
+Type as you watch a video to create timestamps automatically at that time.
