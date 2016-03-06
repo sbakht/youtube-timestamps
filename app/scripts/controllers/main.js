@@ -29,8 +29,10 @@ angular.module('youStampApp')
   	}
 
   	$scope.createStamp = function() {
-		$scope.stamps.push($scope.newStamp);
-		resetInputs();
+  		if($scope.newStamp.input.length) {
+			$scope.stamps.push($scope.newStamp);
+			resetInputs();
+		}
   	}
 
   	function secondsToTimeStr(time) {
