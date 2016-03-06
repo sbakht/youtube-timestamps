@@ -104,13 +104,12 @@ body {
   cursor: pointer;
 }
 
-
 .stamp-time{
-
+  color:blue;
+  cursor: pointer;
 }
 
 .stamp-input {
   float:right;
   padding-right:10px;
 }
-

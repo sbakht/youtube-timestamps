@@ -9,10 +9,15 @@
  */
 angular.module('youStampApp')
   .controller('MainCtrl', function ($scope) {
-  	$scope.theBestVideo = 'm-CKVr6Z1Tw';
+  	$scope.theBestVideo = 'https://www.youtube.com/watch?v=v59ZdF04w3c';
   	$scope.currentVideoTime = "00:00";
   	$scope.newStamp = { time: "00:00", input: ""};
   	$scope.stamps = [];
+  	$scope.player = null;
+
+	$scope.$on('youtube.player.ready', function ($event, player) {
+  		$scope.player = player;
+  	});
 
   	$scope.$on('youtube.player.playing', function ($event, player) {
   		setInterval(function() { updateTimer(player) }, 500);
