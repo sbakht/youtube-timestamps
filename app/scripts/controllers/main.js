@@ -8,7 +8,7 @@
  * Controller of the youStampApp
  */
 angular.module('youStampApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function ($scope, hotkeys) {
   	$scope.theBestVideo = 'https://www.youtube.com/watch?v=v59ZdF04w3c';
   	$scope.currentVideoTime = "00:00";
   	$scope.newStamp = { time: "00:00", input: ""};
@@ -56,6 +56,37 @@ angular.module('youStampApp')
   		$scope.newStamp = {};
   		$scope.newStamp.input = "";
 		$scope.newStamp.time = $scope.currentVideoTime;
+  	}
+
+  	hotkeys.add({
+	    combo: 'alt+up',
+	    description: '+1 for creating stamp',
+	    allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
+	    callback: function() {
+	      var videoLength = $scope.player.getDuration();
+	      var seconds = timeStrToSeconds($scope.newStamp.time) + 1;
+	      if(seconds <= videoLength) {
+	      	$scope.newStamp.time = secondsToTimeStr(seconds);
+	      }
+	    }
+	});
+
+  	hotkeys.add({
+	    combo: 'alt+down',
+	    description: '-1 for creating stamp',
+	    allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
+	    callback: function() {
+	      var seconds = timeStrToSeconds($scope.newStamp.time) - 1;
+	      if(seconds >= 0) {
+	      	$scope.newStamp.time = secondsToTimeStr(seconds);
+	  	  }
+	    }
+	});
+
+  	function timeStrToSeconds(time) {
+  		var minutes = time.match(/\d+/)[0];
+  		var seconds = time.match(/\:(\d+)/)[1];
+  		return parseInt(minutes) * 60 + parseInt(seconds);
   	}
 
   });
