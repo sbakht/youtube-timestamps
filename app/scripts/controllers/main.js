@@ -19,7 +19,7 @@ angular.module('youStampApp')
   	});
 
   	function updateTimer(player) {
-  		$scope.currentVideoTime = Math.floor(player.getCurrentTime());
+  		$scope.currentVideoTime = secondsToTimeStr(player.getCurrentTime());
   		console.log($scope.currentVideoTime);
   	}
 
@@ -27,6 +27,18 @@ angular.module('youStampApp')
   		if($scope.newStampInput.length === 0) {
   			$scope.newStampTime = $scope.currentVideoTime;
   		}
+  	}
+
+  	function secondsToTimeStr(time) {
+  		var seconds = Math.floor(time % 60);
+  		var minutes = Math.floor(time / 60);
+  		if(seconds < 10) {
+  			seconds = "0" + seconds;
+  		}
+  		if(minutes < 10) {
+  			minutes = "0" + minutes;
+  		}
+  		return minutes + ":" + seconds; 
   	}
 
   });
