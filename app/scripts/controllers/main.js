@@ -25,11 +25,11 @@ angular.module('youStampApp')
 
   	function updateTimer(player) {
   		$scope.currentVideoTime = secondsToTimeStr(player.getCurrentTime());
-  	}
-
-  	$scope.keypress = function() {
   		if($scope.newStamp.input.length === 0) {
+  			console.log($scope.newStamp);
   			$scope.newStamp.time = $scope.currentVideoTime;
+  			$scope.$apply();
+  			console.log($scope.newStamp);
   		}
   	}
 

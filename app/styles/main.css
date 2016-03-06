@@ -121,3 +121,7 @@ form {
 #no-stamps {
   font-style: italic;
 }
+
+.container {
+  margin-top:50px;
+}
