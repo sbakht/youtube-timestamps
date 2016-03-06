@@ -116,12 +116,29 @@ body {
 
 form {
   margin-left:10%;
+  margin-top: 1%;
 }
 
-#no-stamps {
+#no-stamps, #hint {
   font-style: italic;
 }
 
+#hint {
+  font-size: .8em;
+  margin-left: 10%;
+}
+
 .container {
-  margin-top:50px;
+}
+
+#new-stamp-time{
+  font-size: 16px;
+}
+
+#new-stamp-input {
+  margin-left: 20px;
+}
+
+.header {
+  text-align: center;
 }
