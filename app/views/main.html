@@ -9,7 +9,7 @@
 
 <div class="row">
 <form ng-submit="createStamp()">
-  <input id="new-stamp-time" ng-model="newStamp.time"></input><input id="new-stamp-input" ng-model="newStamp.input" ng-keypress="keypress()" type="text" />
+  <span id="new-stamp-time">{{newStamp.time}}</span><input id="new-stamp-input" ng-model="newStamp.input" ng-keypress="keypress()" type="text" />
   <input type="submit" value="Create Timestamp" />
 </form>
 </div>
