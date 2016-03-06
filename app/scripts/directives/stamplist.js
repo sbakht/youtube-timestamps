@@ -9,7 +9,7 @@
 angular.module('youStampApp')
   .directive('stampList', function () {
     return {
-      template: '<div><div ng-repeat="(time, text) in stamps">{{time}} - {{text}}</div></div>',
+      templateUrl: 'views/templates/stamplist.html',
       restrict: 'E',
       scope: {
       	stamps: "="
