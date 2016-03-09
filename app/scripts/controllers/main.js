@@ -9,7 +9,7 @@
  */
 angular.module('youStampApp')
   .controller('MainCtrl', function ($scope, hotkeys) {
-  	$scope.theBestVideo = 'v59ZdF04w3c';
+  	$scope.theBestVideo = 'Ks-_Mh1QhMc';
   	$scope.currentVideoTime = "00:00";
   	$scope.newStamp = { time: "00:00", input: ""};
   	$scope.stamps = [];
